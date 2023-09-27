@@ -1,6 +1,6 @@
 Integrantes del Grupo: 
--Langenheim Gerónimo Valentín. Emáil:  
--Emanuel San Román. Emáil: emanuel.sanroman03@gmail.com.
+-Langenheim Gerónimo Valentín. Email: langenheimgeronimo8@gmail.com
+-Emanuel San Román. Email: emanuel.sanroman03@gmail.com.
 
 Temática del TPE: Registros de asesinatos.
 

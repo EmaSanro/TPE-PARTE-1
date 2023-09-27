@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2023 a las 16:49:10
+-- Tiempo de generación: 27-09-2023 a las 19:25:25
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.1.17
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,42 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `RegistroAsesinatos`
+-- Base de datos: `registroasesinatos`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asesino`
---
--- Creación: 18-09-2023 a las 04:12:59
+-- Estructura de tabla para la tabla `asesinos`
 --
 
-CREATE TABLE `asesino` (
-  `Id` int(11) NOT NULL,
-  `Nombre` char(20) NOT NULL,
-  `Apellido` char(20) NOT NULL,
-  `Edad` tinyint(3) NOT NULL,
-  `Genero` char(30) NOT NULL,
-  `Peso` smallint(4) NOT NULL,
-  `Altura` smallint(5) NOT NULL
+CREATE TABLE `asesinos` (
+  `id` int(11) NOT NULL,
+  `Nombre` char(30) NOT NULL,
+  `Apellido` char(30) NOT NULL,
+  `Edad` tinyint(10) NOT NULL,
+  `Genero` char(35) NOT NULL,
+  `Peso` smallint(20) NOT NULL,
+  `Altura` smallint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `crimen`
---
--- Creación: 18-09-2023 a las 13:48:33
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `crimen` (
-  `Id` int(11) NOT NULL,
-  `Arma` char(30) NOT NULL,
-  `Tipo` char(30) NOT NULL,
-  `Id_asesino` int(11) NOT NULL,
-  `Id_victima` int(11) NOT NULL,
-  `Fecha` varchar(30) NOT NULL
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -61,15 +54,14 @@ CREATE TABLE `crimen` (
 --
 -- Estructura de tabla para la tabla `victimas`
 --
--- Creación: 18-09-2023 a las 04:41:14
---
 
 CREATE TABLE `victimas` (
-  `Id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `Nombre` char(30) NOT NULL,
   `Apellido` char(30) NOT NULL,
   `Edad` tinyint(4) NOT NULL,
-  `Genero` char(30) NOT NULL
+  `Genero` char(30) NOT NULL,
+  `id_asesino` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -77,57 +69,55 @@ CREATE TABLE `victimas` (
 --
 
 --
--- Indices de la tabla `asesino`
+-- Indices de la tabla `asesinos`
 --
-ALTER TABLE `asesino`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE `asesinos`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `crimen`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `crimen`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_asesino` (`Id_asesino`),
-  ADD KEY `Id_victima` (`Id_victima`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `victimas`
 --
 ALTER TABLE `victimas`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_asesino` (`id_asesino`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `asesino`
+-- AUTO_INCREMENT de la tabla `asesinos`
 --
-ALTER TABLE `asesino`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `asesinos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `crimen`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `crimen`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `victimas`
 --
 ALTER TABLE `victimas`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `crimen`
+-- Filtros para la tabla `victimas`
 --
-ALTER TABLE `crimen`
-  ADD CONSTRAINT `crimen_ibfk_1` FOREIGN KEY (`Id_asesino`) REFERENCES `asesino` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crimen_ibfk_2` FOREIGN KEY (`Id_victima`) REFERENCES `victimas` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `victimas`
+  ADD CONSTRAINT `victimas_ibfk_1` FOREIGN KEY (`id_asesino`) REFERENCES `asesinos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
