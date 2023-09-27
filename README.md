@@ -1,4 +1,6 @@
-Nombres: Langenheim Gerónimo Valentín y Emanuel San Román.
+Integrantes del Grupo: 
+-Langenheim Gerónimo Valentín. Emáil:  
+-Emanuel San Román. Emáil: emanuel.sanroman03@gmail.com.
 
 Temática del TPE: Registros de asesinatos.
 
