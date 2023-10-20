@@ -1,15 +1,13 @@
-{include file="templates/header.tpl" titulo="Listado de Asesinos:" title="Asesinos"}
-
-{if $sesion}
-    <ul>
-    {foreach from=$asesinos item=$asesino}
-        <li>Nombre: {$asesino->Nombre} <a href='victimasPorAsesino/{$asesino->id}'>Ver Victimas</a> <a href='eliminar/asesinos/{$asesino->id}'> Eliminar</a> <a href='editar/asesinos/{$asesino->id}'> Editar</a></li>
-    {/foreach}
-    </ul>
-{else}
-    <ul>
+{include file="templates/header.tpl" title="Listado de Asesinos"}
+<h1 class="title">Listado de Asesinos</h1>
+<ul class="lista">
+    {if $sesion}
         {foreach from=$asesinos item=$asesino}
-                <li>{$asesino->Nombre} <a href='victimasPorAsesino/{$asesino->id}'>Ver Victimas</a></li>
+            <li>Nombre: {$asesino->Nombre} {$asesino->Apellido} <a href='victimasPorAsesino/{$asesino->id}'>Ver Victimas</a> <a href='eliminar/asesinos/{$asesino->id}'> Eliminar</a> <a href='editar/asesinos/{$asesino->id}'> Editar</a></li>
         {/foreach}
-    </ul>
-{/if}
+    {else}
+        {foreach from=$asesinos item=$asesino}
+                <li>{$asesino->Nombre} {$asesino->Apellido} <a href='victimasPorAsesino/{$asesino->id}'>Ver Victimas</a></li>
+        {/foreach}
+    {/if}
+</ul>
