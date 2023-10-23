@@ -8,6 +8,7 @@ body {
 }
 
 .title {
+    width: 100%;
     text-align: center;
     background-color: coral;
     padding: 10px;
@@ -130,4 +131,22 @@ body {
 
 .lista li a:hover {
     text-shadow: 0 0 15px #ff0d0dea;
+}
+
+.container-header {
+    display: flex;
+    width: 100%;
+}
+
+.cerrarSesion {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ff581c;
+    padding: 10px;
+    border-radius: 10px;
 }

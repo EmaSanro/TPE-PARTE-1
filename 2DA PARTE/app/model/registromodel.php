@@ -10,9 +10,7 @@ class Registromodel {
         $user = USER;
         $password = PASSWORD;
 
-        $string = "mysql:host=$host;dbname=$dbname;charset=$charset";
-
-        $this->conex = new PDO($string, $user, $password);
+        $this->conex = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $user, $password);
     }
 
     function obtenerAsesinos() {

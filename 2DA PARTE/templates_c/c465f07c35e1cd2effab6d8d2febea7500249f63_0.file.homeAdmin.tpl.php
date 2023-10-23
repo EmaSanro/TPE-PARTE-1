@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-10-21 00:13:06
+/* Smarty version 4.2.1, created on 2023-10-23 17:21:37
   from 'C:\xampp\htdocs\TPE-WEB2\2DA PARTE\templates\homeAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6532fb72ce2769_86461568',
+  'unifunc' => 'content_65368f817e38d6_49645959',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c465f07c35e1cd2effab6d8d2febea7500249f63' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE-WEB2\\2DA PARTE\\templates\\homeAdmin.tpl',
-      1 => 1697839984,
+      1 => 1698074494,
       2 => 'file',
     ),
   ),
@@ -21,10 +21,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/header.tpl' => 1,
   ),
 ),false)) {
-function content_6532fb72ce2769_86461568 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65368f817e38d6_49645959 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>"Home Admin"), 0, false);
 ?>
-<h1 class="title">Home Admin</h1>
+<div class="container-header">
+    <h1 class="title">Home Admin</h1>
+    <a class="cerrarSesion" href="cerrar">Cerrar Sesion</a>
+</div>
 <div class="listados">
     <a href="listaVictimas">Listar Victimas</a>
     <a href="listaAsesinos">Listar Asesinos</a>
@@ -83,6 +86,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <button type="submit">Agregar</button>
         </form>
     </div>
-</div>
-<a href="cerrar">Cerrar Sesion</a><?php }
+</div><?php }
 }

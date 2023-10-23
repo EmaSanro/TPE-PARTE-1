@@ -1,5 +1,8 @@
 {include file="templates/header.tpl" title="Home Admin"}
-<h1 class="title">Home Admin</h1>
+<div class="container-header">
+    <h1 class="title">Home Admin</h1>
+    <a class="cerrarSesion" href="cerrar">Cerrar Sesion</a>
+</div>
 <div class="listados">
     <a href="listaVictimas">Listar Victimas</a>
     <a href="listaAsesinos">Listar Asesinos</a>
@@ -50,4 +53,3 @@
         </form>
     </div>
 </div>
-<a href="cerrar">Cerrar Sesion</a>
